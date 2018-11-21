@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Furever</title>
+		<title>Search - Furever</title>
 		<meta charset="UTF-8" />
 	</head>
 	<body>
@@ -22,19 +22,17 @@
 			</nav>
 		</header>
 		<main>
-			<section id="welcome">
-				
-			</section>
-			<section id="signup">
-				<form>
-					<input type="text" name="username" id="usernameInput"/>
-					<input type="email" name="email" id="emailInput" />
-					<input type="password" name="password" id="passwordInput" />
-					<input type="submit" value="Sign Up" id="submitBtn" />
-				</form>
-				<p>Are you an Animal Shelter? Click for the shelter sign up <a href="">here</a>.</p>
-			</section>
+			<div class="pet">
+				<img src="" />
+				<h2>name</h2>
+				<p>age</p>
+				<p>m/f, breed</p>
+				<a href="">My Profile</a>
+			</div>
 		</main>
+		<aside>
+			<h2>Filters</h2>
+		</aside>
 		<footer>
 			<p>&copy;2018 Furever</p>
 			<ul>
