@@ -1,57 +1,57 @@
-<?php ?>
+<?php
+$id = $_GET['id'];
 
-<!DOCTYPE HTML>
+$dsn = "mysql:host=localhost;dbname=wysockca_adoption_app;charset=utf8mb4";
+$dbusername = "wysockca";
+$dbpassword = "sxRaM*y74c4";
+
+$pdo = new PDO($dsn, $dbusername, $dbpassword);
+
+$stmt = $pdo->prepare("SELECT * FROM `pet-profile` WHERE `id` = '$id'");
+
+$stmt->execute();
+
+$row = $stmt->fetch();
+?>
+
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>name's Profile - Furever</title>
-		<meta charset="UTF-8" />
-	</head>
-	<body>
-		<header>
-			<a href=""><img src=""/></a>
-			<nav>
-				<ul>
-					<li>Browse</li>
-					<li>Profile</li>
-					<li>Login</li>
-					<li>Logout</li>
-					<li>Sign up</li>
-				</ul>
-				<div id="search">
-				</div>
-			</nav>
-		</header>
-		<main>
-			<div class="profile">
-				<img src="" />
-				<h1>name</h1>
-				<p>age</p>
-				<h2>Breed:</h2>
-				<p>breed</p>
-				<h2>Colour:</h2>
-				<p>colour</p>
-				<h2>Spayed/neutered:</h2>
-				<p>yes/no</p>
-				<h2>Declawed:</h2>
-				<p>yes/no</p>
-				<h2>Good with kids:</h2>
-				<p>yes/no</p>
-				<h2>Good with other animals:</h2>
-				<p>yes/no</p>
-				<a href="">Contact Shelter</a>
-			</div>
-			<div id="description">
-				<h1>Description</h1>
-				<p>description</p>
-			</div>
-		</main>
-		<footer>
-			<p>&copy;2018 Furever</p>
-			<ul>
-				<li><a href="">About</a></li>
-				<li><a href="">Donate</a></li>
-				<li><a href="">Contact Us</a></li>
-			</ul>
-		</footer>
-	</body>
+<head>
+	<title><?php echo($row["name"]);?>'s Profile - Furever</title>
+	<meta charset="UTF-8" />
+</head>
+<body>
+	<main>
+		<div class="profile">
+			<img src="assets/<?php echo($row["image"]);?>" />
+			<h1><?php echo($row["name"]);?></h1>
+			<h2><?php echo($row["breed"]);?></h2>
+			<h3>Age:</h3>
+			<p><?php echo($row["age"]);?></p>
+			<h3>Colouring:</h3>
+			<p><?php echo($row["color"]);?></p>
+			<h3>Spayed/neutered:</h3>
+			<p><?php echo($row["neutered"]);?></p>
+			<h3>Declawed:</h3>
+			<p><?php echo($row["declawed"]);?></p>
+			<h3>Good with kids:</h3>
+			<p><?php echo($row["kids"]);?></p>
+			<h3>Good with other animals:</h3>
+			<p><?php echo($row["otherPets"]);?></p>
+			<a href="">Contact Shelter</a>
+		</div>
+		<div id="description">
+			<h2>About <?php echo($row["name"]);?></h2>
+			<p><?php echo($row["about"]);?></p>
+		</div>
+	</main>
+	<footer>
+		<p>&copy;2018 Furever</p>
+		<ul>
+			<li><a href="">About</a></li>
+			<li><a href="">Donate</a></li>
+			<li><a href="">Contact Us</a></li>
+		</ul>
+	</footer>
+</body>
 </html>
