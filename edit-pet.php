@@ -23,7 +23,7 @@ $row = $stmt->fetch();
 </head>
 <body>
 	<h1>Edit Pet Profile</h1>
-	<form action="process-pet.php" enctype="multipart/form-data" method="POST">
+	<form action="confirm-edit-pet.php" enctype="multipart/form-data" method="POST">
 		<input type="hidden" value="<?php echo($row["id"]); ?>" name="id"/>
 		<label>Name:</label>
 		<input type="text" name="name" value="<?php echo($row["name"]); ?>">
