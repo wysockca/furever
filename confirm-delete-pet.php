@@ -11,5 +11,5 @@ $stmt = $pdo->prepare("DELETE FROM `pet-profile` WHERE `id` = $id");
 
 $stmt->execute();
 
-header("Location: user-profile.php");
+header("Location: profile.php");
 ?>

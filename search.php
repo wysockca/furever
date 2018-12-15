@@ -1,45 +1,21 @@
-<?php ?>
+<?php
+session_start(); 
 
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Search - Furever</title>
-		<meta charset="UTF-8" />
-	</head>
-	<body>
-		<header>
-			<a href=""><img src=""/></a>
-			<nav>
-				<ul>
-					<li>Browse</li>
-					<li>Profile</li>
-					<li>Login</li>
-					<li>Logout</li>
-					<li>Sign up</li>
-				</ul>
-				<div id="search">
-				</div>
-			</nav>
-		</header>
-		<main>
-			<div class="pet">
-				<img src="" />
-				<h2>name</h2>
-				<p>age</p>
-				<p>m/f, breed</p>
-				<a href="">My Profile</a>
-			</div>
-		</main>
-		<aside>
-			<h2>Filters</h2>
-		</aside>
-		<footer>
-			<p>&copy;2018 Furever</p>
-			<ul>
-				<li><a href="">About</a></li>
-				<li><a href="">Donate</a></li>
-				<li><a href="">Contact Us</a></li>
-			</ul>
-		</footer>
-	</body>
-</html>
+$dsn = "mysql:host=localhost;dbname=wysockca_adoption_app;charset=utf8mb4";
+$dbusername = "wysockca";
+$dbpassword = "sxRaM*y74c4";
+
+$pdo = new PDO($dsn, $dbusername, $dbpassword);
+
+$location = $_POST["browse"];
+
+$stmt = $pdo->prepare("SELECT `pet-profile`.`id`, `pet-profile`.`name`, `pet-profile`.`age`, `pet-profile`.`sex`, `pet-profile`.`breed`, `pet-profile`.`animal`, `pet-profile`.`image`, `shelter`.`shelterName` FROM `pet-profile`INNER JOIN `shelter`ON `pet-profile`.`shelter_id` = `shelter`.`id` WHERE `shelter`.`shelterName`= '$location'");
+
+$stmt->execute();
+
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC); //fetching all of the rows as an array
+$json = json_encode($results);
+echo($json);
+
+?>
+
