@@ -122,7 +122,7 @@ $pdo = new PDO($dsn, $dbusername, $dbpassword);
 				<label>Shelter:</label>
 				<select name="shelter_id">
 					<option value="1">Burlington Humane Society</option>
-					<option value="2">Oakville & Milton Humane Society</option>
+					<option value="2">Oakville and Milton Humane Society</option>
 					<option value="3">Hamilton Burlington SPCA</option>
 					<option value="4">Mississauga Animal Services</option>
 					<option value="5">Toronto Humane Society</option>

@@ -76,11 +76,21 @@ $row = $stmt->fetch();
 			<div class="row7">
 				<label>City:</label>
 				<select name="city">
+					<option value="Ajax">Ajax</option>
 					<option value="Brampton">Brampton</option>
 					<option value="Burlington">Burlington</option>
 					<option value="Hamilton">Hamilton</option>
+					<option value="Markham">Markham</option>
+					<option value="Milton">Milton</option>
+					<option value="Mississauga">Mississauga</option>
+					<option value="New Market">New Market</option>
 					<option value="Oakville">Oakville</option>
+					<option value="Oshawa">Oshawa</option>
+					<option value="Pickering">Pickering</option>
+					<option value="Richmond Hill">Richmond Hill</option>
 					<option value="Toronto">Toronto</option>
+					<option value="Vaughn">Vaughn</option>
+					<option value="Whitby">Whitby</option>
 				</select>
 			</div>
 			<div class="row8">
